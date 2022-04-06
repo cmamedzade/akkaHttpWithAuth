@@ -102,11 +102,8 @@ object CashInService {
 
   def main(args: Array[String]): Unit = {
 
-    "docker start cashin" !   // first create docker container by name cashin
-    Thread.sleep(1000)
-
     val binding = Http()
-      .newServerAt("127.0.0.1", 8080)
+      .newServerAt("0.0.0.0", 8080)
       .bind(route)
 
     binding.onComplete {

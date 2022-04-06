@@ -4,9 +4,12 @@ ThisBuild / scalaVersion := "2.13.8"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "CashIn"
+    name := "CashIn",
+    dockerExposedPorts := Seq(9000)
   )
+  .enablePlugins(JavaAppPackaging)
 
+enablePlugins(DockerPlugin)
 val AkkaVersion = "2.6.14"
 val AkkaHttpVersion = "10.2.9"
 libraryDependencies ++= Seq(
